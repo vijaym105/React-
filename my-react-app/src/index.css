@@ -1,13 +1,38 @@
-.welc {
-  font-size: 2.5rem;
-  background-color: rgb(38, 218, 38);
-  padding: 10px;
-  margin: auto;
+.head {
+  font-size: 30px;
+  font-weight: 500;
+  margin: 10px;
 }
 
-.lf {
-  background-color: red;
-  font-size: 2.5rem;
-  padding: 10px;
-  margin: auto;
+.inps input {
+  height: 40px;
+  width: 180px;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.textdes {
+  gap: 10px;
+  color: rgb(4, 48, 48);
+}
+
+.add-btn {
+  height: 55px;
+  width: 60px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: rgba(4, 189, 4, 0.712);
+}
+
+.Remove-btn {
+  margin: 10px;
+  height: 30px;
+  width: 90px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: rgba(255, 0, 0, 0.637);
+}
+
+button {
+  cursor: pointer;
 }

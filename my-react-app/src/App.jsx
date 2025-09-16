@@ -1,9 +1,10 @@
-import Update from "./Update"
+import ToDoList from "./ToDoList"
+
 
 
 function App(){
   return(
-<Update />
+<ToDoList />
   )
 }
 
