@@ -1,70 +1,62 @@
-import { element } from "prop-types";
-import { useState } from "react";
-
-
+import { func } from "prop-types";
+import { useEffect, useState } from "react";
 
 function ToDoList(){
-    const[tasks, setTasks] = useState(["Fitmate", "React-Pract", "Clg Study"]);
-    const[newtask, setNewTask] = useState("");
+    const [width, setWdith] = useState(window.innerWidth);
+    const [height, setHeight] = useState(window.innerHeight);
 
-    function Add(){
-       if(newtask.trim !== "") { setTasks(t => [...t, newtask])
-        setNewTask("")}
-    }
-    function Remove(index){
-        const deltask = tasks.filter((element,ind) => ind !== index);
-        setTask(deltask)
-    }
-    function handleinpChange(e){
-        setNewTask(e.target.value)
-    }
-    function movetaskUp(index){
-        if(index > 0){
-            const updtasks = [...tasks];
-            [updtasks[index], updtasks[index-1]] =
-            [updtasks[index-1], updtasks[index]]
-            setTasks(updtasks)
+    useEffect(() =>{
+    window.addEventListener("resize", handleSize )
+        console.log("event added baibe");
+    
+},[])
+        function handleSize(){
+            setHeight(window.innerHeight);
+            setWdith(window.innerWidth);
         }
-    }
-    function movetaskDown(index){
-         if(index < tasks.length -1){
-            const updtasks = [...tasks];
-            [updtasks[index], updtasks[index+1]] =
-            [updtasks[index+1], updtasks[index]]
-            setTasks(updtasks)
-        }
-    }
+    return(
+        <>
+        <p>Window Width: {width}px</p>
+        <p> Window Height: {height}px </p>
+        </>
+    )
+}
 
-return(
-    <div className="head">
-    <h1>To-Do-List</h1>
 
-    <div className="inps">
-        <input type="text" value={newtask} onChange={handleinpChange}
-         placeholder="Enter a task ..." />
-         <button className="add-btn" 
-         onClick={Add}>Add</button>
-    </div>
-    <ol>
-    {tasks.map((task,index) =>
-    <li key={index}> <span className="textdes">{task}</span>
-
-    <button className="Remove-btn" 
-    onClick={() => Remove(index)}
-    >delete</button>
-
-     <button className="move-btn" 
-     onClick={() => movetaskUp(index)}>🔼</button>
-
-    <button className="down-btn" onClick={()=> movetaskDown((index))}>
-        🔽
-    </button>
-    </li>
-    )}
-    </ol>
-    </div>
-
-);
-};
 
 export default ToDoList
+
+
+
+// Code for useEffect (Counter)
+// function ToDoList(){
+//     const [count, setCount] = useState(0);
+//     const [color, setColor] = useState("green")
+
+//     useEffect(() => {
+//         document.title = `Count: ${count} `
+        
+
+//         return () => {
+
+//         }
+//     },[count, color])
+//     function AddCount(){
+//         setCount(c => c+1)
+//     }
+//     function SubCount(){
+//         setCount(c => c-1)
+//     }
+//     function Chngcolor(){
+//         setColor(c => c == "green" ? "red" : "green")
+//     }
+//     return(
+//         <div>
+//             <h2>This is counter</h2>
+//             <h4>Count: {count}</h4>
+//             <button onClick={AddCount}>Add</button>
+//             <button onClick={SubCount}>Sub</button><br />
+//             <button onClick={Chngcolor}>Change Color</button>
+//         </div>
+//     )
+// }
