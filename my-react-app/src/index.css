@@ -1,38 +1,22 @@
-.head {
-  font-size: 30px;
-  font-weight: 500;
-  margin: 10px;
+html,
+body {
+  background-image: url(assets/pic.avif);
+  object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  height: 100%;
+  width: 100%;
 }
-
-.inps input {
-  height: 40px;
-  width: 180px;
-  font-size: 18px;
-  padding: 5px;
-}
-
-.textdes {
-  gap: 10px;
-  color: rgb(4, 48, 48);
-}
-
-.add-btn {
-  height: 55px;
-  width: 60px;
-  font-size: 16px;
-  font-weight: 600;
-  background-color: rgba(4, 189, 4, 0.712);
-}
-
-.Remove-btn {
-  margin: 10px;
-  height: 30px;
-  width: 90px;
-  font-size: 16px;
-  font-weight: 600;
-  background-color: rgba(255, 0, 0, 0.637);
-}
-
-button {
-  cursor: pointer;
+.clock-cont {
+  color: hsl(0, 45%, 18%);
+  font-size: 5rem;
+  font-family: monospace;
+  text-shadow: 3px 3px 5px hsla(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 }
