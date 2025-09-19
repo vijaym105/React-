@@ -1,10 +1,11 @@
-import ToDoList from "./ToDoList"
+import CompA from "./CompA"
+
 
 
 
 function App(){
   return(
-<ToDoList />
+<CompA />
   )
 }
 
