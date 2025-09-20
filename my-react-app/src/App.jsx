@@ -1,11 +1,12 @@
-import CompA from "./CompA"
+import StopWatch from "./StopWatch"
+
 
 
 
 
 function App(){
   return(
-<CompA />
+<StopWatch />
   )
 }
 
