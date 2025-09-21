@@ -1,57 +1,65 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { createContext, useContext, useEffect, useRef, useState } from "react"
 
+export const UserContext = createContext();
 function StopWatch(){
-    const[ Isrunning, setRunning] = useState(false);
-    const[elapsedtime, setElapsedTime] = useState(0);
-    const intervalRef = useRef(null);
-    const startTime = useRef(0);
+    
+    const user = useContext(UserContext);
 
-    useEffect(() => {
-       if(Isrunning){ intervalRef.current = setInterval(()=> {
-            setElapsedTime(Date.now() - startTime.current);
-        }, 10);}
-        else{
-            clearInterval(intervalRef.current);
-        }
 
-        return() => {
-            clearInterval(intervalRef.current);
-        }
-    }, [Isrunning])
-
-    function start(){
-        setRunning(true);
-        startTime.current = Date.now() - elapsedtime;
-    }
-    function stop(){
-       let rn = setRunning(false);
-        console.log(rn)
-    }
-    function reset(){
-       setElapsedTime(0);
-       setRunning(false)
-    }
-    function formatTime(){
-        let hours = Math.floor(elapsedtime / (1000 * 60 * 60));
-        let minutes = Math.floor(elapsedtime / (1000 * 60) % 60);
-        let seconds = Math.floor(elapsedtime / (1000) % 60);
-        let milisec = Math.floor((elapsedtime % 1000) / 10); 
-
-        // minutes = String().padStart(2, "0");
-        // seconds = String().padStart(2, "0");
-        // milisec = String().padStart(2, "0");
-         return `${minutes}:${seconds}:${milisec}`;
-    }
-    return (
-        <div className='stop-watch'>
-            <div className='display'>{formatTime()}</div>
-            <div className='controls'>
-                <button onClick={start} className='start'>Start</button>
-                <button onClick={stop} className='stop'>Stop</button>
-                <button onClick={reset} className='reset'>Reset</button>
-            </div>
+    return(
+        <div>
+            <h1>MySelf {user.name}!</h1>
+              <p>Age: {user.Age}</p>
+      <p>Role: {user.Role}</p>
         </div>
-    );
-};
+    )
+}
 
-export default StopWatch;
+export default StopWatch
+
+// for counting every re-render
+// const [count, setCount] = useState(0);
+// const inpref = useRef(0);
+ 
+// useEffect(() => {
+//     inpref.current += 1 ;
+// });
+   
+//     function Add(){
+//         setCount(count + 1);
+//     }
+    
+//     return(
+//         <div>
+//            <p>Component is rendered {count} times</p>
+//            <button onClick={Add}>Add</button>
+//         </div>
+//     )
+// }
+
+
+//  For zoom in and zoom out
+//     const igref = useRef(null);
+//     const [zoom, setZoom] = useState(false);
+
+//     function zoomin(){
+//         igref.current.style.transform = "scale(1.5)";
+//         igref.current.style.transition = "ease-in 0.3s";
+//     }
+//     function zoomout(){
+//         igref.current.style.transform = "scale(1)";
+//         igref.current.style.transition = "ease-out 0.3s";
+//     }
+//     return(
+//         <div>
+//           <img ref={igref} 
+//           src="https://unsplash.com/photos/a-brown-and-black-abstract-design-on-a-black-background-2lmnaQQBHH4" 
+//           alt="Imagezomiingg" 
+//           style={{width: "200px", height: "200px"}}/>
+//           <br />
+//           <button onClick={zoomin}>Zoom in</button>
+//           <br />
+//           <button onClick={zoomout}>Zoom out</button>
+//         </div>
+//     )
+// }
