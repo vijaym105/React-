@@ -1,1 +1,113 @@
+<<<<<<< HEAD
 @import "tailwindcss";
+=======
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff81;
+}
+
+.head{
+  display: flex;
+  align-items: center;
+  background-color: #c8c5c5;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+  height: auto;
+}
+.left h1{
+  font-weight: 350;
+  opacity: 0.8;
+}
+
+
+.mid i{
+  margin: 10px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-style: normal;
+  cursor: pointer;
+}
+
+.mid i:hover{
+  border: 1px solid grey;
+  border-radius: 50%;
+  padding: 10px;
+}
+.right button{
+  background-color: #ffffff00;
+  border: 1px solid rgba(128, 128, 128, 0.483);
+  padding: 10px;
+  border-radius: 10px;
+  color: black;
+  cursor: pointer;
+}
+.right button:hover{
+  background-color: #33333349;
+}
+
+
+.sec{
+  background-image: url("https://images.unsplash.com/photo-1623998021722-b934f73081df?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  height: 70%;
+  width: 100%;
+  background-color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero{
+  position: absolute;
+  top: 35%;
+
+  font-size: 30px;
+  color: white;
+
+}
+
+.hero h3{
+  font-weight: 400;
+  padding: 10px;
+  text-align: center;
+  word-spacing: 4px;
+  text-transform: capitalize;
+  opacity: 0.85;
+}
+.para{
+  color: whitesmoke;
+  opacity: 0.6;
+  text-align: center;
+}
+
+.btn{
+  position: absolute;
+  bottom: 7%;
+  display: flex;
+  
+}
+.btn button{
+  color: rgba(255, 255, 255, 0.789);
+  padding: 5px 17px;
+  font-size: 20px;
+  border-radius: 20px;
+  background-color: royalblue;
+  border: none;
+  opacity: 0.75;
+  cursor: pointer;
+}
+.btn button:hover{
+  background-color: rgb(14, 72, 244);
+}
+.foot footer{
+  text-align: center;
+}
+>>>>>>> 0907ddd5c09734fb01c9319f7e572c9312685e18

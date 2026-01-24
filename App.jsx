@@ -1,61 +1,66 @@
-import React from 'react'
-import Card from './Component/Card';
+import React, { useState } from 'react'
+
 
 
 const App = () => {
-  const people = [
-  {
-    username: "vj_codes",
-    name: "Vijay Malusare",
-    bio: "Frontend dev | MERN learner | Building cool stuff 🚀",
-    profilePic: "https://i.pravatar.cc/150?img=12",
-    media: 24,
-    followers: 1320,
-    following: 310
-  },
-  {
-    username: "codewithayush",
-    name: "Ayush Sharma",
-    bio: "JavaScript | React | Teaching code daily 💻",
-    profilePic: "https://i.pravatar.cc/150?img=32",
-    media: 58,
-    followers: 8450,
-    following: 120
-  },
-  {
-    username: "travelwithriya",
-    name: "Riya Patel",
-    bio: "Solo traveler 🌍 | Capturing moments",
-    profilePic: "https://i.pravatar.cc/150?img=47",
-    media: 142,
-    followers: 21400,
-    following: 540
-  },
-  {
-    username: "designbyneel",
-    name: "Neel Verma",
-    bio: "UI/UX Designer | Figma & Framer 🎨",
-    profilePic: "https://i.pravatar.cc/150?img=56",
-    media: 36,
-    followers: 5600,
-    following: 410
-  },
-  {
-    username: "fitlife_karan",
-    name: "Karan Singh",
-    bio: "Fitness coach | Healthy mind & body 💪",
-    profilePic: "https://i.pravatar.cc/150?img=64",
-    media: 89,
-    followers: 9800,
-    following: 290
-  }
-];
+  const [users, setUsers] = useState([])
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [number, setNumber] = useState('')
+  const [image, setImage] = useState('')
 
+
+  function Formhandler(dets){
+    dets.preventDefault();
+
+    setUsers([... users, {name,email,number,image}])
+    
+    setNumber('')
+    setEmail('')
+    setName('')
+    setImage('')
+  }
   return (
-    <div className='flex flex-row gap-2.5 '>
-      {people.map((elem)=>{
-      return <Card dets={elem}/> 
-})}
+    <div className='flex flex-wrap'>
+      <form className='bg-amber-500 border-amber-50 gap-1.5 h-30  w-full px-4 py-1.5 flex  justify-between relative' 
+      onSubmit={(e)=>{
+          Formhandler(e)
+        }}>
+        <input className=' bg-amber-700 h-14 w-62 rounded-2xl' type="text" placeholder='Enter your name'
+        value={name}
+        onChange={(e)=>{
+          setName(e.target.value)
+        }}
+        />
+        <input className='bg-blue-400 px-1.5 mr-1.5 h-14 w-62 rounded-2xl'  type="text" placeholder='Enter your email'
+        value={email}
+        onChange={(e)=>{
+          setEmail(e.target.value)
+        }}
+        />
+        <input className='bg-green-400 px-1.5 ml-1.5 h-14 w-62 rounded-2xl' type="number" placeholder='Enter your number'
+        value={number}
+        onChange={(num)=>{
+          setNumber(num.target.value)
+        }}
+        />
+        <input className='bg-yellow-400 px-1.5 ml-1.5 h-14 w-62 rounded-2xl' type="text" placeholder='Enter profile link'
+        value={image}
+        onChange={(num)=>{
+          setImage(num.target.value)
+        }}
+        />
+        <button  className='absolute bottom-2 left-[48%] border-b-gray-800 border py-1 px-2 rounded-3xl cursor-pointer active:scale-0'>Submit</button>
+      </form>
+      {users.map(function(elem, idx){
+        return <div key={idx} className='flex flex-col items-center justify-center h-58 w-58 bg-blue-400 rounded m-3.5'>
+          <img className='h-18 w-18 object-cover rounded-4xl mb-5.5' src={elem.image} alt="" />
+          <h1 className='uppercase mb-3.5 font-bold text-2xl'>{elem.name}</h1>
+          <p className='text-xs font-semibold'>Email: {elem.email}</p>
+          <h4 className='py-1.5 font-semibold'>Number: {elem.number}</h4>
+          
+        </div>
+      })}
     </div>
   )
 }
